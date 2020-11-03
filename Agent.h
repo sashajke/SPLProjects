@@ -9,6 +9,7 @@ public:
     Agent(Session& ses);
     Session& getSession();
     virtual void act()=0;
+
 private:
     Session& session;
 };
