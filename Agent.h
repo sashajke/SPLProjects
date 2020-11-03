@@ -1,33 +1,14 @@
-#ifndef AGENT_H_
-#define AGENT_H_
+//
+// Created by az123 on 11/3/2020.
+//
 
-#include <vector>
-#include "Session.h"
+#ifndef ASSIGNMENT1_AGENT_H
+#define ASSIGNMENT1_AGENT_H
 
-class Agent{
-public:
-    Agent(Session& session);
 
-    virtual void act()=0;
-private:
-    Session& session;
-};
+class Agent {
 
-class ContactTracer: public Agent{
-public:
-    ContactTracer(Session& session);
-
-    virtual void act();
 };
 
 
-class Virus: public Agent{
-public:
-    Virus(int nodeInd, Session& session);
-
-    virtual void act();
-private:
-    const int nodeInd;
-};
-
-#endif
+#endif //ASSIGNMENT1_AGENT_H

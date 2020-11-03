@@ -84,6 +84,30 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Agent.cpp">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Agent.h">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Graph.cpp">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Graph.h">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Session.cpp">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Session.h">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Tree.cpp">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Tree.h">
+			<Option target="Assignment1"/>
+		</Unit>
 		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/main.cpp">
 			<Option target="Assignment1"/>
 		</Unit>

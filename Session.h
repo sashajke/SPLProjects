@@ -1,34 +1,14 @@
-#ifndef SESSION_H_
-#define SESSION_H_
+//
+// Created by az123 on 11/3/2020.
+//
 
-#include <vector>
-#include <string>
-#include "Graph.h"
+#ifndef ASSIGNMENT1_SESSION_H
+#define ASSIGNMENT1_SESSION_H
 
-class Agent;
 
-enum TreeType{
-    Cycle,
-    MaxRank,
-    Root
+class Session {
+
 };
 
-class Session{
-public:
-    Session(const std::string& path);
 
-    void simulate();
-    void addAgent(const Agent& agent);
-    void setGraph(const Graph& graph);
-
-    void enqueueInfected(int);
-    int dequeueInfected();
-    TreeType getTreeType() const;
-
-private:
-    Graph g;
-    TreeType treeType;
-    std::vector<Agent*> agents;
-};
-
-#endif
+#endif //ASSIGNMENT1_SESSION_H
