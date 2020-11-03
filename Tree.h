@@ -1,14 +1,41 @@
-//
-// Created by az123 on 11/3/2020.
-//
+#ifndef TREE_H_
+#define TREE_H_
 
-#ifndef ASSIGNMENT1_TREE_H
-#define ASSIGNMENT1_TREE_H
+#include <vector>
+
+class Session;
+
+class Tree{
+public:
+    Tree(int rootLabel);
+    void addChild(const Tree& child);
 
 
-class Tree {
-
+    static Tree* createTree(const Session& session, int rootLabel);
+    virtual int traceTree()=0;
+private:
+    int node;
+    std::vector<Tree*> children;
 };
 
+class CycleTree: public Tree{
+public:
+    CycleTree(int rootLabel, int currCycle);
+    virtual int traceTree();
+private:
+    int currCycle;
+};
 
-#endif //ASSIGNMENT1_TREE_H
+class MaxRankTree: public Tree{
+public:
+    MaxRankTree(int rootLabel);
+    virtual int traceTree();
+};
+
+class RootTree: public Tree{
+public:
+    RootTree(int rootLabel);
+    virtual int traceTree();
+};
+
+#endif

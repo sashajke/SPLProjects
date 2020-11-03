@@ -1,14 +1,17 @@
-//
-// Created by az123 on 11/3/2020.
-//
+#ifndef GRAPH_H_
+#define GRAPH_H_
 
-#ifndef ASSIGNMENT1_GRAPH_H
-#define ASSIGNMENT1_GRAPH_H
+#include <vector>
 
+class Graph{
+public:
+    Graph();
+    Graph(std::vector<std::vector<int>> matrix);
 
-class Graph {
-
+    void infectNode(int nodeInd);
+    bool isInfected(int nodeInd);
+private:
+    std::vector<std::vector<int>> edges;
 };
 
-
-#endif //ASSIGNMENT1_GRAPH_H
+#endif
