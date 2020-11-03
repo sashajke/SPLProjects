@@ -90,6 +90,9 @@
 		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Agent.h">
 			<Option target="Assignment1"/>
 		</Unit>
+		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/ContactTracer.cpp">
+			<Option target="Assignment1"/>
+		</Unit>
 		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Graph.cpp">
 			<Option target="Assignment1"/>
 		</Unit>
@@ -106,6 +109,9 @@
 			<Option target="Assignment1"/>
 		</Unit>
 		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Tree.h">
+			<Option target="Assignment1"/>
+		</Unit>
+		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/Virus.cpp">
 			<Option target="Assignment1"/>
 		</Unit>
 		<Unit filename="D:/School/3rd_semester/SPL/Assignments/Assignment1/main.cpp">

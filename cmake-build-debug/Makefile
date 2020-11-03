@@ -154,6 +154,33 @@ Agent.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\Agent.cpp.s
 .PHONY : Agent.cpp.s
 
+ContactTracer.obj: ContactTracer.cpp.obj
+
+.PHONY : ContactTracer.obj
+
+# target to build an object file
+ContactTracer.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\ContactTracer.cpp.obj
+.PHONY : ContactTracer.cpp.obj
+
+ContactTracer.i: ContactTracer.cpp.i
+
+.PHONY : ContactTracer.i
+
+# target to preprocess a source file
+ContactTracer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\ContactTracer.cpp.i
+.PHONY : ContactTracer.cpp.i
+
+ContactTracer.s: ContactTracer.cpp.s
+
+.PHONY : ContactTracer.s
+
+# target to generate assembly for a file
+ContactTracer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\ContactTracer.cpp.s
+.PHONY : ContactTracer.cpp.s
+
 Graph.obj: Graph.cpp.obj
 
 .PHONY : Graph.obj
@@ -235,6 +262,33 @@ Tree.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\Tree.cpp.s
 .PHONY : Tree.cpp.s
 
+Virus.obj: Virus.cpp.obj
+
+.PHONY : Virus.obj
+
+# target to build an object file
+Virus.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\Virus.cpp.obj
+.PHONY : Virus.cpp.obj
+
+Virus.i: Virus.cpp.i
+
+.PHONY : Virus.i
+
+# target to preprocess a source file
+Virus.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\Virus.cpp.i
+.PHONY : Virus.cpp.i
+
+Virus.s: Virus.cpp.s
+
+.PHONY : Virus.s
+
+# target to generate assembly for a file
+Virus.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\Virus.cpp.s
+.PHONY : Virus.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -274,6 +328,9 @@ help:
 	@echo ... Agent.obj
 	@echo ... Agent.i
 	@echo ... Agent.s
+	@echo ... ContactTracer.obj
+	@echo ... ContactTracer.i
+	@echo ... ContactTracer.s
 	@echo ... Graph.obj
 	@echo ... Graph.i
 	@echo ... Graph.s
@@ -283,6 +340,9 @@ help:
 	@echo ... Tree.obj
 	@echo ... Tree.i
 	@echo ... Tree.s
+	@echo ... Virus.obj
+	@echo ... Virus.i
+	@echo ... Virus.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

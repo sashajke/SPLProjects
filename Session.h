@@ -6,6 +6,7 @@
 #include <string>
 #include "Graph.h"
 
+
 class Agent;
 
 enum TreeType{
@@ -22,14 +23,15 @@ public:
     void simulate();
     void addAgent(const Agent& agent);
     void setGraph(const Graph& graph);
-
+    void actAsVirus(int nodeint);
+    Session & Session::operator=(const Session &aSession);
     void enqueueInfected(int);
     int dequeueInfected();
     TreeType getTreeType() const;
 
 private:
     Graph g;
-    TreeType treeType;
+        TreeType treeType;
     std::vector<Agent*> agents;
     std::queue<int> infectedQueue;
 };
