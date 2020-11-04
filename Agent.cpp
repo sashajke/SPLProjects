@@ -6,6 +6,3 @@ Agent::Agent(Session& ses) : session(ses)
 {
 
 }
-Session & Agent::getSession() {
-    return session;
-}

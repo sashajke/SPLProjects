@@ -19,11 +19,12 @@ class Session{
 public:
 
     Session(const std::string& path);
-
+    Session(const Session &aSession);
     void simulate();
     void addAgent(const Agent& agent);
     void setGraph(const Graph& graph);
     void actAsVirus(int nodeint);
+    void actAsContactTracer();
     Session & Session::operator=(const Session &aSession);
     void enqueueInfected(int);
     int dequeueInfected();
@@ -31,9 +32,8 @@ public:
 
 private:
     Graph g;
-        TreeType treeType;
+    TreeType treeType;
     std::vector<Agent*> agents;
-    std::queue<int> infectedQueue;
 };
 
 #endif

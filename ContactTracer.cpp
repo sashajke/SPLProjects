@@ -8,6 +8,6 @@ ContactTracer::ContactTracer(Session &session)  : Agent(session)
 }
 
 void ContactTracer::act() {
-	Session& ses = getSession();
+	session.actAsContactTracer();
 
 }

@@ -5,21 +5,77 @@
 #include "Graph.h"
 Graph::Graph() {}
 
-Graph::Graph(std::vector<std::vector<int>> matrix){}
+Graph::Graph(std::vector<std::vector<int>> matrix)
+{
+    edges = matrix;
+    nodesStatus = std::vector<int>(matrix.size());
 
-void Graph::infectNode(int nodeInd){}
+}
 
+void Graph::infectNode(int nodeInd)
+{
+    if(!isInfected(nodeInd))
+    {
+        infectedQueue.push(nodeInd);
+        nodesStatus.at(nodeInd) = 2;
+    }
+
+}
+void Graph::insertVirus(int nodeInd)
+{
+    if(nodesStatus.at(nodeInd) == 0)
+        nodesStatus.at(nodeInd) = 1;
+}
+bool Graph::isCarrying(int nodeInd)
+{
+    int nodeCondition = nodesStatus.at(nodeInd);
+    return nodeCondition == 1;
+}
 bool Graph::isInfected(int nodeInd)
 {
-    return true;
+    int nodeCondition = nodesStatus.at(nodeInd);
+    return nodeCondition == 2;
+}
+int Graph::numOfInfected()
+{
+    return infectedQueue.size();
 }
 
 std::vector<int> Graph::getRow(int nodeInd)
 {
-    return edges.at(nodeInd);
+    std::vector<int> ret;
+    for(int i=0;i<edges.at(nodeInd).size();i++) // copy the row
+    {
+        ret.push_back(edges.at(nodeInd).at(i));
+    }
+    return ret;
 }
 
 bool Graph::isNeighbours(int first, int second)
 {
     return true;
+}
+int Graph::dequeueInfected()
+{
+    int node = infectedQueue.front();
+    infectedQueue.pop();
+    return node;
+}
+
+void Graph::disconnectNode(int nodeInt)
+{
+    if(nodeInt < edges.size())
+    {
+        for(int i=0;i<edges.size();i++)
+        {
+            std::vector<int> row = edges.at(i);
+            for(int j=0; j<row.size();j++)
+            {
+                if(i == nodeInt || j == nodeInt)
+                {
+                    row.at(j) = 0;
+                }
+            }
+        }
+    }
 }

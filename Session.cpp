@@ -3,12 +3,20 @@
 //
 #include "Session.h"
 #include "Agent.h"
+#include "Tree.h"
 
 
 Session::Session(const std::string& path)
 {
-    std::vector<std::vector<int>> matrix;
-    g = Graph(matrix);
+    std::vector<std::vector<int>> vect
+            {
+                    {1, 1},
+                    {1, 1}
+            };
+    g = Graph(vect);
+    Agent* v = new Virus(0,*this);
+    agents.push_back(v);
+
 }
 Session & Session::operator=(const Session &aSession)
 {
@@ -21,7 +29,7 @@ Session & Session::operator=(const Session &aSession)
     setGraph(aSession.g);
     treeType = aSession.treeType;
     agents = aSession.agents;
-    infectedQueue = aSession.infectedQueue;
+    //infectedQueue = aSession.infectedQueue;
     // return this List
     return *this;
 }
@@ -29,6 +37,14 @@ Session & Session::operator=(const Session &aSession)
 void Session::simulate()
 {
 
+    while(g.numOfInfected() != 2)
+    {
+        int numOfCurrentAgents = agents.size();
+        for(int i=0;i<numOfCurrentAgents;i++)
+        {
+           agents.at(i)->act();
+        }
+    }
 }
 void Session:: addAgent(const Agent& agent)
 {
@@ -39,28 +55,51 @@ void Session::setGraph(const Graph& graph)
 
 }
 
-void Session::enqueueInfected(int)
+void Session::enqueueInfected(int nodeInd)
 {
-
+    g.infectNode(nodeInd);
 }
 int Session::dequeueInfected()
 {
-    return 1;
+    int node = g.dequeueInfected();
+    return node;
 }
 TreeType Session::getTreeType() const
 {
     return treeType;
 }
 void Session::actAsVirus(int nodeind)
-{ 
+{
     std::vector<int> virusRow = g.getRow(nodeind);
     // need to check if the virus is in the queue already
+    if(!g.isInfected(nodeind))
+        g.infectNode(nodeind);
     for(int i=0;i<virusRow.size();i++)
     {
-        if(i != nodeind && g.isNeighbours(nodeind,i) && !g.isInfected(i))
+        if(i != nodeind)
         {
-             Agent* newVirus = new Virus(i,*this);
-             agents.push_back(newVirus);
+            if(g.isNeighbours(nodeind,i))
+            {
+                if(!g.isCarrying(i) && !g.isInfected(i))
+                {
+                    Agent* newVirus = new Virus(i,*this);
+                    agents.push_back(newVirus);
+                    g.insertVirus(i);
+                    break;
+                }
+            }
+
         }
     }
 }
+
+void Session::actAsContactTracer()
+{
+    int sickNode = g.dequeueInfected();
+    Tree* tree = Tree::createTree(*this,sickNode);
+    int nodeToDisconnect = tree->traceTree();
+    g.disconnectNode(nodeToDisconnect);
+    delete tree;
+}
+
+
