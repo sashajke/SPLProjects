@@ -6,9 +6,8 @@ Virus::Virus(int nodeind,Session &session)  : Agent(session),nodeInd(nodeind)
 {
 
 }
-void Virus::act() {
-    Session& ses = getSession();
-
-    ses.actAsVirus(nodeInd);
+void Virus::act()
+{
+    session.actAsVirus(nodeInd);
 }
 
