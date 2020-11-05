@@ -3,7 +3,10 @@
 //
 
 #include "Graph.h"
-Graph::Graph() {}
+Graph::Graph(const Graph& graph) {
+    edges = graph.edges;
+    nodesStatus = graph.nodesStatus;
+}
 
 Graph::Graph(std::vector<std::vector<int>> matrix)
 {
@@ -11,6 +14,13 @@ Graph::Graph(std::vector<std::vector<int>> matrix)
     nodesStatus = std::vector<int>(matrix.size());
 
 }
+Graph& Graph::operator=(const Graph &graph) {
+    edges = graph.edges;
+    nodesStatus = graph.nodesStatus;
+    infectedQueue = graph.infectedQueue;
+    return *this;
+}
+
 
 void Graph::infectNode(int nodeInd)
 {

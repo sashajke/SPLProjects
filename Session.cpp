@@ -14,9 +14,18 @@ Session::Session(const std::string& path)
                     {1, 1}
             };
     g = Graph(vect);
+    vect.at(0).at(0) = 0;
+
     Agent* v = new Virus(0,*this);
     agents.push_back(v);
 
+}
+Session::~Session() {
+    for(int i=0;i<agents.size();i++)
+    {
+        delete agents.at(i);
+    }
+    agents.clear();
 }
 Session & Session::operator=(const Session &aSession)
 {
@@ -28,9 +37,15 @@ Session & Session::operator=(const Session &aSession)
 
     setGraph(aSession.g);
     treeType = aSession.treeType;
-    agents = aSession.agents;
-    //infectedQueue = aSession.infectedQueue;
-    // return this List
+    for(int i=0;i<agents.size();i++)
+    {
+        delete agents.at(i);
+    }
+    agents.clear();
+    for(int i=0;i<aSession.agents.size();i++)
+    {
+        agents.push_back(aSession.agents.at(i));
+    }
     return *this;
 }
 
@@ -52,7 +67,7 @@ void Session:: addAgent(const Agent& agent)
 }
 void Session::setGraph(const Graph& graph)
 {
-
+    g = graph;
 }
 
 void Session::enqueueInfected(int nodeInd)
@@ -95,11 +110,11 @@ void Session::actAsVirus(int nodeind)
 
 void Session::actAsContactTracer()
 {
-    int sickNode = g.dequeueInfected();
-    Tree* tree = Tree::createTree(*this,sickNode);
-    int nodeToDisconnect = tree->traceTree();
-    g.disconnectNode(nodeToDisconnect);
-    delete tree;
+//    int sickNode = g.dequeueInfected();
+//    Tree* tree = Tree::createTree(*this,sickNode);
+//    int nodeToDisconnect = tree->traceTree();
+//    g.disconnectNode(nodeToDisconnect);
+//    delete tree;
 }
 
 
