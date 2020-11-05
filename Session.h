@@ -20,6 +20,7 @@ public:
 
     Session(const std::string& path);
     Session(const Session &aSession);
+    ~Session();
     void simulate();
     void addAgent(const Agent& agent);
     void setGraph(const Graph& graph);
