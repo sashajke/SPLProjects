@@ -9,10 +9,11 @@ class Tree{
 public:
     Tree(int rootLabel);
     void addChild(const Tree& child);
-
-
     static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;
+    int GetRoot();
+    ~Tree();
+    virtual std::vector<Tree*>* GetChildern();
 private:
     int node;
     std::vector<Tree*> children;
@@ -30,6 +31,7 @@ class MaxRankTree: public Tree{
 public:
     MaxRankTree(int rootLabel);
     virtual int traceTree();
+    virtual MaxRankTree GetChildern();
 };
 
 class RootTree: public Tree{

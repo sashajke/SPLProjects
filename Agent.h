@@ -7,11 +7,7 @@
 class Agent{
 public:
     Agent(Session& ses);
-    Agent(const Agent &agent);
     virtual ~Agent(){}
-    Agent& Agent::operator=(const Agent& agent);
-
-
     virtual void act()=0;
 
 protected:
@@ -22,7 +18,6 @@ class ContactTracer: public Agent{
 public:
     ContactTracer(Session& session);
     virtual ~ContactTracer(){}
-
     virtual void act();
 };
 
@@ -30,7 +25,6 @@ public:
 class Virus: public Agent{
 public:
     Virus(int nodeInd, Session& session);
-    Virus(const Virus&virus);
     virtual ~Virus(){}
     virtual void act();
 private:
