@@ -53,7 +53,8 @@ std::vector<int> Graph::getRow(int nodeInd)
 
 bool Graph::isNeighbours(int first, int second)
 {
-    return true;
+    bool res = edges.at(first).at(second) == 1;
+    return  res;
 }
 int Graph::dequeueInfected()
 {

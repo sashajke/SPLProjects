@@ -47,10 +47,10 @@ RM = "C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = D:\School\3rd_semester\SPL\Assignments\Assignment1
+CMAKE_SOURCE_DIR = D:\School\3rd_semester\SPL\Assignments\SPLProjects
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug
+CMAKE_BINARY_DIR = D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles\Assignment1.dir\depend.make
@@ -63,135 +63,135 @@ include CMakeFiles\Assignment1.dir\flags.make
 
 CMakeFiles\Assignment1.dir\main.cpp.obj: CMakeFiles\Assignment1.dir\flags.make
 CMakeFiles\Assignment1.dir\main.cpp.obj: ..\main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Assignment1.dir/main.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Assignment1.dir/main.cpp.obj"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\main.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\Assignment1\main.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\main.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\SPLProjects\main.cpp
 <<
 
 CMakeFiles\Assignment1.dir\main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment1.dir/main.cpp.i"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\Assignment1.dir\main.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\Assignment1\main.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\SPLProjects\main.cpp
 <<
 
 CMakeFiles\Assignment1.dir\main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment1.dir/main.cpp.s"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\main.cpp.s /c D:\School\3rd_semester\SPL\Assignments\Assignment1\main.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\main.cpp.s /c D:\School\3rd_semester\SPL\Assignments\SPLProjects\main.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Agent.cpp.obj: CMakeFiles\Assignment1.dir\flags.make
 CMakeFiles\Assignment1.dir\Agent.cpp.obj: ..\Agent.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Assignment1.dir/Agent.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Assignment1.dir/Agent.cpp.obj"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\Agent.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\Assignment1\Agent.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\Agent.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\SPLProjects\Agent.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Agent.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment1.dir/Agent.cpp.i"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\Assignment1.dir\Agent.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\Assignment1\Agent.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\SPLProjects\Agent.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Agent.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment1.dir/Agent.cpp.s"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\Agent.cpp.s /c D:\School\3rd_semester\SPL\Assignments\Assignment1\Agent.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\Agent.cpp.s /c D:\School\3rd_semester\SPL\Assignments\SPLProjects\Agent.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Graph.cpp.obj: CMakeFiles\Assignment1.dir\flags.make
 CMakeFiles\Assignment1.dir\Graph.cpp.obj: ..\Graph.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Assignment1.dir/Graph.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Assignment1.dir/Graph.cpp.obj"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\Graph.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\Assignment1\Graph.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\Graph.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\SPLProjects\Graph.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Graph.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment1.dir/Graph.cpp.i"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\Assignment1.dir\Graph.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\Assignment1\Graph.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\SPLProjects\Graph.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Graph.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment1.dir/Graph.cpp.s"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\Graph.cpp.s /c D:\School\3rd_semester\SPL\Assignments\Assignment1\Graph.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\Graph.cpp.s /c D:\School\3rd_semester\SPL\Assignments\SPLProjects\Graph.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Session.cpp.obj: CMakeFiles\Assignment1.dir\flags.make
 CMakeFiles\Assignment1.dir\Session.cpp.obj: ..\Session.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Assignment1.dir/Session.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Assignment1.dir/Session.cpp.obj"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\Session.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\Assignment1\Session.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\Session.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\SPLProjects\Session.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Session.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment1.dir/Session.cpp.i"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\Assignment1.dir\Session.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\Assignment1\Session.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\SPLProjects\Session.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Session.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment1.dir/Session.cpp.s"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\Session.cpp.s /c D:\School\3rd_semester\SPL\Assignments\Assignment1\Session.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\Session.cpp.s /c D:\School\3rd_semester\SPL\Assignments\SPLProjects\Session.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Tree.cpp.obj: CMakeFiles\Assignment1.dir\flags.make
 CMakeFiles\Assignment1.dir\Tree.cpp.obj: ..\Tree.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Assignment1.dir/Tree.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Assignment1.dir/Tree.cpp.obj"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\Tree.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\Assignment1\Tree.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\Tree.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\SPLProjects\Tree.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Tree.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment1.dir/Tree.cpp.i"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\Assignment1.dir\Tree.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\Assignment1\Tree.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\SPLProjects\Tree.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Tree.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment1.dir/Tree.cpp.s"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\Tree.cpp.s /c D:\School\3rd_semester\SPL\Assignments\Assignment1\Tree.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\Tree.cpp.s /c D:\School\3rd_semester\SPL\Assignments\SPLProjects\Tree.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Virus.cpp.obj: CMakeFiles\Assignment1.dir\flags.make
 CMakeFiles\Assignment1.dir\Virus.cpp.obj: ..\Virus.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Assignment1.dir/Virus.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Assignment1.dir/Virus.cpp.obj"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\Virus.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\Assignment1\Virus.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\Virus.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\SPLProjects\Virus.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Virus.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment1.dir/Virus.cpp.i"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\Assignment1.dir\Virus.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\Assignment1\Virus.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\SPLProjects\Virus.cpp
 <<
 
 CMakeFiles\Assignment1.dir\Virus.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment1.dir/Virus.cpp.s"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\Virus.cpp.s /c D:\School\3rd_semester\SPL\Assignments\Assignment1\Virus.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\Virus.cpp.s /c D:\School\3rd_semester\SPL\Assignments\SPLProjects\Virus.cpp
 <<
 
 CMakeFiles\Assignment1.dir\ContactTracer.cpp.obj: CMakeFiles\Assignment1.dir\flags.make
 CMakeFiles\Assignment1.dir\ContactTracer.cpp.obj: ..\ContactTracer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Assignment1.dir/ContactTracer.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Assignment1.dir/ContactTracer.cpp.obj"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\ContactTracer.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\Assignment1\ContactTracer.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\Assignment1.dir\ContactTracer.cpp.obj /FdCMakeFiles\Assignment1.dir\ /FS -c D:\School\3rd_semester\SPL\Assignments\SPLProjects\ContactTracer.cpp
 <<
 
 CMakeFiles\Assignment1.dir\ContactTracer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment1.dir/ContactTracer.cpp.i"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe > CMakeFiles\Assignment1.dir\ContactTracer.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\Assignment1\ContactTracer.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\School\3rd_semester\SPL\Assignments\SPLProjects\ContactTracer.cpp
 <<
 
 CMakeFiles\Assignment1.dir\ContactTracer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment1.dir/ContactTracer.cpp.s"
 	C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\ContactTracer.cpp.s /c D:\School\3rd_semester\SPL\Assignments\Assignment1\ContactTracer.cpp
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\Assignment1.dir\ContactTracer.cpp.s /c D:\School\3rd_semester\SPL\Assignments\SPLProjects\ContactTracer.cpp
 <<
 
 # Object files for target Assignment1
@@ -216,9 +216,9 @@ Assignment1.exe: CMakeFiles\Assignment1.dir\Virus.cpp.obj
 Assignment1.exe: CMakeFiles\Assignment1.dir\ContactTracer.cpp.obj
 Assignment1.exe: CMakeFiles\Assignment1.dir\build.make
 Assignment1.exe: CMakeFiles\Assignment1.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Assignment1.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Assignment1.exe"
 	"C:\Program Files\JetBrains\CLion 2020.2.4\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\Assignment1.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100177~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100177~1.0\x86\mt.exe --manifests  -- C:\PROGRA~2\MICROS~2\2017\PROFES~1\VC\Tools\MSVC\1416~1.270\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\Assignment1.dir\objects1.rsp @<<
- /out:Assignment1.exe /implib:Assignment1.lib /pdb:D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug\Assignment1.pdb /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
+ /out:Assignment1.exe /implib:Assignment1.lib /pdb:D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug\Assignment1.pdb /version:0.0  /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
 
 # Rule to build all files generated by this target.
@@ -231,6 +231,6 @@ CMakeFiles\Assignment1.dir\clean:
 .PHONY : CMakeFiles\Assignment1.dir\clean
 
 CMakeFiles\Assignment1.dir\depend:
-	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" D:\School\3rd_semester\SPL\Assignments\Assignment1 D:\School\3rd_semester\SPL\Assignments\Assignment1 D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug D:\School\3rd_semester\SPL\Assignments\Assignment1\cmake-build-debug\CMakeFiles\Assignment1.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" D:\School\3rd_semester\SPL\Assignments\SPLProjects D:\School\3rd_semester\SPL\Assignments\SPLProjects D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug D:\School\3rd_semester\SPL\Assignments\SPLProjects\cmake-build-debug\CMakeFiles\Assignment1.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles\Assignment1.dir\depend
 
