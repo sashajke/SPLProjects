@@ -10,4 +10,8 @@ void Virus::act()
 {
     session.actAsVirus(nodeInd);
 }
+Virus::Virus(const Virus &virus) : Agent(virus.session),nodeInd(virus.nodeInd) {
+
+}
+
 

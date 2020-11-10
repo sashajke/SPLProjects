@@ -20,6 +20,7 @@ public:
 
     Session(const std::string& path);
     Session(const Session &aSession);
+    ~Session();
     void simulate();
     void addAgent(const Agent& agent);
     void setGraph(const Graph& graph);
@@ -29,8 +30,10 @@ public:
     void enqueueInfected(int);
     int dequeueInfected();
     TreeType getTreeType() const;
-
+    const Graph& GetGraph() const;
+int GetCycle() const;
 private:
+    int cycle;
     Graph g;
     TreeType treeType;
     std::vector<Agent*> agents;

@@ -6,10 +6,19 @@
 #define ASSIGNMENT1_BFS_H
 #include "Session.h"
 #include "Tree.h"
+#include "Graph.h"
+using namespace std;
+
 class Bfs {
 public:
-    Bfs(Session &seesion,int rootlabel);
-    Tree RunScan();
+    Bfs(const Session& s ,int root);
+    void RunScan(Tree &);
+
+private:
+    queue<int> q;
+     Graph g;
+    int root;
+    Session s;
 };
 
 

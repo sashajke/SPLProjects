@@ -154,6 +154,33 @@ Agent.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\Agent.cpp.s
 .PHONY : Agent.cpp.s
 
+Bfs.obj: Bfs.cpp.obj
+
+.PHONY : Bfs.obj
+
+# target to build an object file
+Bfs.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\Bfs.cpp.obj
+.PHONY : Bfs.cpp.obj
+
+Bfs.i: Bfs.cpp.i
+
+.PHONY : Bfs.i
+
+# target to preprocess a source file
+Bfs.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\Bfs.cpp.i
+.PHONY : Bfs.cpp.i
+
+Bfs.s: Bfs.cpp.s
+
+.PHONY : Bfs.s
+
+# target to generate assembly for a file
+Bfs.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Assignment1.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\Assignment1.dir\Bfs.cpp.s
+.PHONY : Bfs.cpp.s
+
 ContactTracer.obj: ContactTracer.cpp.obj
 
 .PHONY : ContactTracer.obj
@@ -328,6 +355,9 @@ help:
 	@echo ... Agent.obj
 	@echo ... Agent.i
 	@echo ... Agent.s
+	@echo ... Bfs.obj
+	@echo ... Bfs.i
+	@echo ... Bfs.s
 	@echo ... ContactTracer.obj
 	@echo ... ContactTracer.i
 	@echo ... ContactTracer.s
