@@ -14,24 +14,26 @@ using json = nlohmann::json;
 
 Session::Session(const std::string& path)
 {
-
+    cycle = 1;
     std::ifstream stream(path);
     json j;
     stream >> j;
-    for(int i=0;i<j["agents"].size();i++) // agents addition
-    {
-            Agent* v;
-            if(j["agents"][i][0] == "V")
-            {
-                 v = new Virus(j["agents"][i][1],*this);
-            }
-            else
-                v = new ContactTracer(*this);
-            addAgent(*v);
-    }
+
 
     std::vector<std::vector<int>> edges = j["graph"]; // initialize the graph
     setGraph(edges);
+    for(size_t i=0;i< j["agents"].size();i++) // agents addition
+    {
+        Agent* v;
+        if(j["agents"][i][0] == "V")
+        {
+            v = new Virus(j["agents"][i][1],*this);
+            g.insertVirus(j["agents"][i][1]);
+        }
+        else
+            v = new ContactTracer(*this);
+        addAgent(*v);
+    }
 
     std::string tree = j["tree"];
     switch(tree[0]) // initialize the treeType of the tree
@@ -48,11 +50,21 @@ Session::Session(const std::string& path)
     }
 }
 Session::~Session() {
-    for(int i=0;i<agents.size();i++)
+    for(size_t i=0;i<agents.size();i++)
     {
         delete agents.at(i);
     }
     agents.clear();
+}
+Session ::Session(const Session &aSession)
+{
+    g = aSession.g;
+    cycle = aSession.cycle;
+    treeType = aSession.treeType;
+    for(int i=0;i<(int)aSession.agents.size();i++)
+    {
+        addAgent(*aSession.agents[i]->clone());
+    }
 }
 Session & Session::operator=(const Session &aSession)
 {
@@ -64,14 +76,14 @@ Session & Session::operator=(const Session &aSession)
 
     setGraph(aSession.g);
     treeType = aSession.treeType;
-    for(int i=0;i<agents.size();i++)
+    for(size_t i=0;i<agents.size();i++)
     {
         delete agents.at(i);
     }
     agents.clear();
-    for(int i=0;i<aSession.agents.size();i++)
+    for(size_t i=0;i<aSession.agents.size();i++)
     {
-        addAgent(*aSession.agents.at(i));
+        addAgent(*aSession.agents[i]->clone());
     }
     return *this;
 }
@@ -87,15 +99,16 @@ int Session::GetCycle() const {
 void Session::simulate()
 {
 
-    while(g.numOfInfected() != 2) // need to modify the exit clause
+    while(!isFinished()) // need to modify the exit clause
     {
         int numOfCurrentAgents = agents.size();
         for(int i=0;i<numOfCurrentAgents;i++)
         {
            agents.at(i)->act();
         }
+        cycle++;
     }
-    cycle++;
+
 }
 void Session:: addAgent(const Agent& agent)
 {
@@ -126,7 +139,7 @@ void Session::actAsVirus(int nodeind)
     // need to check if the virus is in the queue already
     if(!g.isInfected(nodeind))
         g.infectNode(nodeind);
-    for(int i=0;i<virusRow.size();i++)
+    for(size_t i=0;i<virusRow.size();i++)
     {
         if(i != nodeind)
         {
@@ -148,11 +161,22 @@ void Session::actAsVirus(int nodeind)
 
 void Session::actAsContactTracer()
 {
-//    int sickNode = g.dequeueInfected();
-//    Tree* tree = Tree::createTree(*this,sickNode);
-//    int nodeToDisconnect = tree->traceTree();
-//    g.disconnectNode(nodeToDisconnect);
-//    delete tree;
+    int sickNode = g.dequeueInfected();
+    if(sickNode != -1)
+    {
+        Tree* tree = Tree::createTree(*this,sickNode);
+        int nodeToDisconnect = tree->traceTree();
+        g.disconnectNode(nodeToDisconnect);
+        delete tree;
+    }
+
+}
+bool Session::isFinished() {
+    return g.checkIfAllSickDisconnected();
+}
+
+int Session::getNumberOfNodes() const {
+    return g.GetNumbeOfVertices();
 }
 
 

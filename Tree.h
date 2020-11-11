@@ -13,14 +13,14 @@ public:
     virtual int traceTree()=0;
     int GetRoot();
     void SetRoot(int root);
+    void runScan(const Session& s,std::vector<int>& scanList);
     ~Tree();
     std::vector<Tree *> GetChildern();
-    std::vector<int> CheckAllVerticesForMax(int CurrentMax, Tree *tree,std::vector<int> & ToReturn);
-    void CheckForProblems(std::vector<Tree>& array, int max, Tree *tree, std::vector<int> & ToReturn);
+
+
 private:
     int node;
     std::vector<Tree*> children;
-    int CheckDepth(std::vector<Tree> &array);
     int getNode();
 };
 
@@ -36,19 +36,17 @@ private:
 
 class MaxRankTree: public Tree{
 public:
-    MaxRankTree(int rootLabel1, int rootLabel);
     MaxRankTree(int rootLabel);
     virtual int traceTree();
-    virtual std::vector<Tree*> GetChildern();
 
 
 
-    int getNode();
+
+
 };
 
 class RootTree: public Tree{
 public:
-    RootTree(int rootLabel1, int rootLabel);
 
     RootTree(int rootLabel);
 
