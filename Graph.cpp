@@ -36,12 +36,12 @@ void Graph::insertVirus(int nodeInd)
     if(nodesStatus.at(nodeInd) == 0)
         nodesStatus.at(nodeInd) = 1;
 }
-bool Graph::isCarrying(int nodeInd)
+bool Graph::isCarrying(int nodeInd) const
 {
     int nodeCondition = nodesStatus.at(nodeInd);
     return nodeCondition == 1;
 }
-bool Graph::isInfected(int nodeInd)
+bool Graph::isInfected(int nodeInd) const
 {
     int nodeCondition = nodesStatus.at(nodeInd);
     return nodeCondition == 2;
@@ -53,42 +53,72 @@ int Graph::numOfInfected()
 int Graph::GetNumbeOfVertices() const {
     return this->edges.size();
 }
-std::vector<int> Graph::getRow(int nodeInd)
+std::vector<int> Graph::getRow(int nodeInd) const
 {
     std::vector<int> ret;
-    for(int i=0;i<edges.at(nodeInd).size();i++) // copy the row
+    for(size_t i=0;i<edges.at(nodeInd).size();i++) // copy the row
     {
         ret.push_back(edges.at(nodeInd).at(i));
     }
     return ret;
 }
 
-bool Graph::isNeighbours(int first, int second)
+bool Graph::isNeighbours(int first, int second) const
 {
     bool res = edges.at(first).at(second) == 1;
     return  res;
 }
 int Graph::dequeueInfected()
 {
-    int node = infectedQueue.front();
-    infectedQueue.pop();
-    return node;
+    if(!infectedQueue.empty())
+    {
+        int node = infectedQueue.front();
+        infectedQueue.pop();
+        return node;
+    }
+    return -1;
 }
 
 void Graph::disconnectNode(int nodeInt)
 {
-    if(nodeInt < edges.size())
+    if(nodeInt < (int)edges.size())
     {
-        for(int i=0;i<edges.size();i++)
+        for(size_t i=0;i<edges.size();i++)
         {
             std::vector<int> row = edges.at(i);
-            for(int j=0; j<row.size();j++)
+            for(size_t j=0; j<edges.at(i).size();j++)
             {
                 if(i == nodeInt || j == nodeInt)
                 {
-                    row.at(j) = 0;
+                    edges.at(i).at(j) = 0;
                 }
             }
         }
     }
+}
+bool Graph::isDisconnected(int nodeInt) const{
+    if(nodeInt<(int)edges.size())
+    {
+        for(size_t i=0;i<edges.size();i++)
+        {
+            std::vector<int> row = edges.at(i);
+            for(size_t j=0; j<row.size();j++)
+            {
+                if(i == nodeInt || j == nodeInt)
+                {
+                    if(row.at(j) == 1 && nodesStatus[j] == 0)
+                        return false;
+                }
+            }
+        }
+    }
+    return true;
+}
+bool Graph::checkIfAllSickDisconnected() const{
+    for(size_t i=0;i<nodesStatus.size();i++)
+    {
+        if(nodesStatus[i] != 0 && !isDisconnected(i))
+            return false;
+    }
+    return true;
 }

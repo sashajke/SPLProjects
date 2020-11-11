@@ -14,13 +14,15 @@ public:
 
     int numOfInfected();
     void infectNode(int nodeInd);
-    bool isInfected(int nodeInd);
+    bool isInfected(int nodeInd) const;
     void insertVirus(int nodeInd);
-    bool isCarrying(int nodeInd);
+    bool isCarrying(int nodeInd) const;
     int dequeueInfected();
-    std::vector<int> getRow(int nodeInd);
-    bool isNeighbours(int first,int second);
+    std::vector<int> getRow(int nodeInd) const;
+    bool isNeighbours(int first,int second) const;
     void disconnectNode(int nodeInt);
+    bool isDisconnected(int nodeInt) const;
+    bool checkIfAllSickDisconnected() const;
     int GetNumbeOfVertices() const;
 
 private:

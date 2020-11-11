@@ -13,5 +13,7 @@ void Virus::act()
 Virus::Virus(const Virus &virus) : Agent(virus.session),nodeInd(virus.nodeInd) {
 
 }
-
-
+Agent* Virus::clone()
+{
+    return new Virus(*this);
+}

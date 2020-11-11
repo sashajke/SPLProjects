@@ -11,7 +11,7 @@ public:
     virtual ~Agent(){}
     Agent& operator=(const Agent& agent);
 
-
+    virtual Agent* clone()=0;
     virtual void act()=0;
 
 protected:
@@ -21,8 +21,9 @@ protected:
 class ContactTracer: public Agent{
 public:
     ContactTracer(Session& session);
+    ContactTracer(const ContactTracer&contactTracer);
     virtual ~ContactTracer(){}
-
+    virtual Agent* clone();
     virtual void act();
 };
 
@@ -33,6 +34,8 @@ public:
     Virus(const Virus&virus);
     virtual ~Virus(){}
     virtual void act();
+    virtual Agent* clone();
+
 private:
     const int nodeInd;
 };
