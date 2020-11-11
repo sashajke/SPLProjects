@@ -9,7 +9,7 @@ public:
     Agent(Session& ses);
     Agent(const Agent &agent);
     virtual ~Agent(){}
-    Agent& Agent::operator=(const Agent& agent);
+    Agent& operator=(const Agent& agent);
 
 
     virtual void act()=0;

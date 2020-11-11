@@ -26,7 +26,7 @@ public:
     void setGraph(const Graph& graph);
     void actAsVirus(int nodeint);
     void actAsContactTracer();
-    Session & Session::operator=(const Session &aSession);
+    Session & operator=(const Session &aSession);
     void enqueueInfected(int);
     int dequeueInfected();
     TreeType getTreeType() const;
