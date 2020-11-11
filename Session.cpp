@@ -4,21 +4,48 @@
 #include "Session.h"
 #include "Agent.h"
 #include "Tree.h"
+#include "json.hpp"
+#include <iostream>     // std::cout
+#include <fstream>      // std::ifstream
+
+// for convenience
+using json = nlohmann::json;
 
 
 Session::Session(const std::string& path)
 {
-    std::vector<std::vector<int>> vect
+
+    std::ifstream stream(path);
+    json j;
+    stream >> j;
+    for(int i=0;i<j["agents"].size();i++) // agents addition
+    {
+            Agent* v;
+            if(j["agents"][i][0] == "V")
             {
-                    {1, 1},
-                    {1, 1}
-            };
-    g = Graph(vect);
-    vect.at(0).at(0) = 0;
+                 v = new Virus(j["agents"][i][1],*this);
+            }
+            else
+                v = new ContactTracer(*this);
+            addAgent(*v);
+    }
 
-    Agent* v = new Virus(0,*this);
-    agents.push_back(v);
+    std::vector<std::vector<int>> edges = j["graph"]; // initialize the graph
+    setGraph(edges);
 
+    std::string tree = j["tree"];
+    switch(tree[0]) // initialize the treeType of the tree
+    {
+        case 'M':
+            treeType = MaxRank;
+            break;
+        case 'C':
+            treeType = Cycle;
+            break;
+        case 'R':
+            treeType = Root;
+            break;
+    }
 }
 Session::~Session() {
     for(int i=0;i<agents.size();i++)
@@ -44,7 +71,7 @@ Session & Session::operator=(const Session &aSession)
     agents.clear();
     for(int i=0;i<aSession.agents.size();i++)
     {
-        agents.push_back(aSession.agents.at(i));
+        addAgent(*aSession.agents.at(i));
     }
     return *this;
 }
@@ -60,7 +87,7 @@ int Session::GetCycle() const {
 void Session::simulate()
 {
 
-    while(g.numOfInfected() != 2)
+    while(g.numOfInfected() != 2) // need to modify the exit clause
     {
         int numOfCurrentAgents = agents.size();
         for(int i=0;i<numOfCurrentAgents;i++)
@@ -68,10 +95,12 @@ void Session::simulate()
            agents.at(i)->act();
         }
     }
+    cycle++;
 }
 void Session:: addAgent(const Agent& agent)
 {
-
+    if(&agent != nullptr)
+        agents.push_back(const_cast<Agent*>(&agent)); // cast to pointer to be able to add to agents
 }
 void Session::setGraph(const Graph& graph)
 {
@@ -106,7 +135,8 @@ void Session::actAsVirus(int nodeind)
                 if(!g.isCarrying(i) && !g.isInfected(i))
                 {
                     Agent* newVirus = new Virus(i,*this);
-                    agents.push_back(newVirus);
+                    addAgent(*newVirus);
+
                     g.insertVirus(i);
                     break;
                 }
