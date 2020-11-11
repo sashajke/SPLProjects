@@ -81,14 +81,7 @@ std::vector<int> Tree::CheckAllVerticesForMax(int CurrentMax, Tree *tree, std::v
     return ToReturn;
 }
 
-void Tree::CheckForProblems(std::vector<Tree> &array, int max, Tree *tree, std::vector<int> &ToReturn) {
-    if (tree->children.size() == max)
-        array.push_back(*tree);
-    for (int index = 0; index < tree->children.size(); index++)
-        CheckForProblems(array, max, children[index], ToReturn);
-    if (!array.empty())
-        ToReturn[0] = CheckDepth(array);
-}
+
 
 
 int MaxRankTree::traceTree() {

@@ -16,7 +16,6 @@ public:
     ~Tree();
     std::vector<Tree *> GetChildern();
     std::vector<int> CheckAllVerticesForMax(int CurrentMax, Tree *tree,std::vector<int> & ToReturn);
-    void CheckForProblems(std::vector<Tree>& array, int max, Tree *tree, std::vector<int> & ToReturn);
 private:
     int node;
     std::vector<Tree*> children;
