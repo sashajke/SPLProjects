@@ -15,8 +15,6 @@ public:
     void SetRoot(int root);
     void runScan(const Session& s,std::vector<int>& scanList);
     ~Tree();
-    std::vector<Tree *> GetChildern();
-
 
 private:
     int node;

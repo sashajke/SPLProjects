@@ -63,6 +63,9 @@ void Tree::addChild(Tree *child) {
 
 //the first int it return is the index and the second is te amount of childern
 
+
+
+
 int MaxRankTree::traceTree() {
     return traceTreeHelpForMaxTree(GetRoot(),0,0,0);
 }
