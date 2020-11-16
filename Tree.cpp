@@ -18,9 +18,6 @@ Tree *Tree::createTree(const Session &session, int rootLabel) {
             ToReturn = new RootTree( rootLabel);
             break;
     }
-//    Bfs *BfsScan = new Bfs(session, rootLabel);
-//    BfsScan->RunScan(*ToReturn);
-//    delete BfsScan;
     std::vector<int> scanList(session.getNumberOfNodes());
     ToReturn->runScan(session,scanList);
     return ToReturn;
@@ -86,8 +83,7 @@ int Tree::traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMa
     return currMaxNode;
 }
 
-/////////////////////////////////////////////
-///////////////////////////////////////////// need to take care of t , he is not initialized
+
 int CycleTree::traceTree() {
     int Curr = this->getCurrCycle();
     return traceTreeHelpForCycleTree(Curr);
@@ -137,5 +133,19 @@ void Tree::runScan(const Session& s,std::vector<int>& scanList)
     {
         children[i]->runScan(s,scanList);
     }
-
+}
+void Tree::SetChildern(std::vector<Tree *> childern) {
+    this->children=childern;
+}
+Tree & Tree::operator=(const Tree &t){
+    SetChildern(t.GetChildren());
+    this->node=t.GetRoot();
+}
+CycleTree& CycleTree::operator=(const CycleTree &Ct) {
+    SetChildern(Ct.GetChildren());
+    this->SetRoot(Ct.GetRoot());
+    this->currCycle = Ct.currCycle;
+}
+CycleTree::CycleTree(int rootLabel, const CycleTree &Ct) : Tree(rootLabel) {
+    this->currCycle=Ct.currCycle;
 }

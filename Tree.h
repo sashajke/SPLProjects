@@ -6,6 +6,7 @@ class Session;
 
 class Tree{
 public:
+    Tree & operator=(const Tree & t);
     int traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMaxDepth, int currDepth) const;
     int traceTreeHelpForCycleTree(int currCycle) const;
     Tree(int rootLabel);
@@ -15,6 +16,7 @@ public:
     int GetRoot() const;
     void SetRoot(int root);
     void runScan(const Session& s,std::vector<int>& scanList);
+    void SetChildern(std::vector<Tree *>  childern);
     ~Tree();
     const std::vector<Tree *> GetChildren() const;
 
@@ -25,9 +27,10 @@ private:
 
 class CycleTree: public Tree{
 public:
+    CycleTree & operator=(const CycleTree & Ct);
     CycleTree(int rootLabel, int currCycle);
-
     virtual int traceTree();
+    CycleTree(int rootLabel, const CycleTree &Ct);
      int getCurrCycle ();
 private:
     int currCycle;
