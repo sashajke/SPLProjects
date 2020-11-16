@@ -22,7 +22,8 @@ Tree *Tree::createTree(const Session &session, int rootLabel) {
 //    BfsScan->RunScan(*ToReturn);
 //    delete BfsScan;
     std::vector<int> scanList(session.getNumberOfNodes());
-    ToReturn->runScan(session,scanList);
+    std::queue<Tree*> q;
+    ToReturn->runScan(session,scanList,q);
     return ToReturn;
 }
 
@@ -47,7 +48,7 @@ Tree::~Tree() {
         delete children[i];
 }
 
-int Tree::GetRoot() const {
+int Tree::GetRoot()  {
     return this->node;
 }
 
@@ -67,9 +68,12 @@ void Tree::addChild(Tree *child) {
 
 
 int MaxRankTree::traceTree() {
-    return traceTreeHelpForMaxTree(GetRoot(),0,0,0);
+    int a = GetRoot();
+    int zero1=0;
+    int zero2 = 0;
+    return traceTreeHelpForMaxTree(a,zero1,zero2,0);
 }
-int Tree::traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMaxDepth, int currDepth) const
+int Tree::traceTreeHelpForMaxTree(int& currMaxNode, int& currMaxAmount, int& currMaxDepth, int currDepth)
 {
     std::vector<Tree*> children = GetChildren();
 
@@ -85,9 +89,6 @@ int Tree::traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMa
     }
     return currMaxNode;
 }
-
-/////////////////////////////////////////////
-///////////////////////////////////////////// need to take care of t , he is not initialized
 int CycleTree::traceTree() {
     int Curr = this->getCurrCycle();
     return traceTreeHelpForCycleTree(Curr);
@@ -111,31 +112,40 @@ int RootTree::traceTree() {
 RootTree::RootTree(int rootLabel) : Tree(rootLabel) {
 
 }
-void Tree::runScan(const Session& s,std::vector<int>& scanList)
+
+void Tree::runScan(const Session& s,std::vector<int>& scanList,queue<Tree*>& queue)
 {
-    Graph g = s.GetGraph();
-    //0 is white, 1 is grey ,2 is black;
-    scanList[node] = 1;
-    for (int index = 0; index < (int)g.getRow(node).size(); index++) {
-        if (g.isNeighbours(index, node) && scanList[index]==0) {
-            scanList[index] = 1;
-            switch (s.getTreeType())
-            {
-                case MaxRank:
-                    addChild(new MaxRankTree(index));
-                    break;
-                case Root:
-                    addChild(new RootTree(index));
-                    break;
-                case Cycle:
-                    addChild(new CycleTree(index,s.GetCycle()));
-                    break;
+        Graph g = s.GetGraph();
+
+        //0 is white, 1 is grey ,2 is black;
+        scanList[node] = 1;
+        for (int index = 0; index < (int)g.getRow(node).size(); index++)
+        {
+            if (g.isNeighbours(index, node) && scanList[index]==0) {
+                scanList[index] = 1;
+                switch (s.getTreeType())
+                {
+                    case MaxRank:
+                        addChild(new MaxRankTree(index));
+                        break;
+                    case Root:
+                        addChild(new RootTree(index));
+                        break;
+                    case Cycle:
+                        addChild(new CycleTree(index,s.GetCycle()));
+                        break;
+                }
             }
         }
-    }
     for(size_t i=0;i<children.size();i++)
     {
-        children[i]->runScan(s,scanList);
+        queue.push(children[i]);
+    }
+    while (!queue.empty())
+    {
+        Tree * tree = queue.front();
+        queue.pop();
+        tree->runScan(s,scanList,queue);
     }
 
 }
