@@ -25,31 +25,11 @@ Tree *Tree::createTree(const Session &session, int rootLabel) {
     ToReturn->runScan(session,scanList);
     return ToReturn;
 }
-Tree::Tree(Tree const &t){
-    this->children=t.children;
-    this->node=t.node;
-}
-CycleTree::CycleTree(const Tree &t, CycleTree const &Ct) : Tree(t) {
-    this->currCycle=Ct.currCycle;
-}
 
-Tree & Tree:: operator=(const Tree & t) {
-    this->children=t.children;
-    this->node=t.node;
-}
-
-CycleTree & CycleTree:: operator=(const CycleTree & Ct){
-    this->SetRoot(Ct.GetRoot());
-    this->SetChildern(Ct.GetChildren());
-    this->currCycle=this->currCycle;
-}
-
-void Tree::SetChildern(std::vector<Tree *> childern) {
-    this->children=childern;
-}
 MaxRankTree::MaxRankTree(int rootLabel) : Tree(rootLabel) {
 
 }
+
 void Tree::SetRoot(int root) {
     this->node = root;
 }
@@ -79,6 +59,13 @@ void Tree::addChild(Tree *child) {
     this->children.push_back((Tree *const) child);
 }
 
+
+
+//the first int it return is the index and the second is te amount of childern
+
+
+
+
 int MaxRankTree::traceTree() {
     return traceTreeHelpForMaxTree(GetRoot(),0,0,0);
 }
@@ -99,6 +86,8 @@ int Tree::traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMa
     return currMaxNode;
 }
 
+/////////////////////////////////////////////
+///////////////////////////////////////////// need to take care of t , he is not initialized
 int CycleTree::traceTree() {
     int Curr = this->getCurrCycle();
     return traceTreeHelpForCycleTree(Curr);

@@ -114,7 +114,7 @@ void Session::creatOutputJson() {
     int counterOfInfected =0;
     for(size_t i=0;i<statusOfNodes.size();i++)
     {
-        if(statusOfNodes[i] == 2)
+        if(statusOfNodes[i] != 0)
             output["infected"][counterOfInfected++] = i;
     }
 
