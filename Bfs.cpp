@@ -30,7 +30,6 @@ void Bfs::RunScan(Tree &ToReturn) {
 
                 q.push(index);
             }
-
         }
         Colors[Vertex]=2;
     }

@@ -5,8 +5,8 @@
 #include "Agent.h"
 #include "Tree.h"
 #include "json.hpp"
-#include <iostream>     // std::cout
-#include <fstream>      // std::ifstream
+#include <fstream>// std::ifstream
+
 
 // for convenience
 using json = nlohmann::json;
@@ -14,7 +14,7 @@ using json = nlohmann::json;
 
 Session::Session(const std::string& path)
 {
-    cycle = 1;
+    cycle = 0;
     std::ifstream stream(path);
     json j;
     stream >> j;
@@ -96,20 +96,33 @@ int Session::GetCycle() const {
     return this->cycle;
 }
 
-void Session::simulate()
-{
-
-    while(!isFinished()) // need to modify the exit clause
-    {
+void Session::simulate() {
+    bool stop = isFinished();
+    while (!isFinished()) {
         int numOfCurrentAgents = agents.size();
-        for(int i=0;i<numOfCurrentAgents;i++)
-        {
-           agents.at(i)->act();
+        for (int i = 0; i < numOfCurrentAgents; i++) {
+            agents.at(i)->act();
         }
         cycle++;
     }
+    creatOutputJson();
+}
+void Session::creatOutputJson() {
+    json output;
+    output["graph"] = g.getGraph();
+    std::vector<int> statusOfNodes = g.getNodesStatus();
+    int counterOfInfected =0;
+    for(size_t i=0;i<statusOfNodes.size();i++)
+    {
+        if(statusOfNodes[i] == 2)
+            output["infected"][counterOfInfected++] = i;
+    }
+
+    std::ofstream stream("C:\\Users\\Michael\\Desktop\\output.json");
+    stream << output;
 
 }
+
 void Session:: addAgent(const Agent& agent)
 {
     if(&agent != nullptr)

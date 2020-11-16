@@ -8,7 +8,7 @@ int main(int argc, char** argv){
 //        cout << "usage cTrace <config_path>" << endl;
 //        return 0;
 //    }
-    Session sess("C:\\Users\\az123\\Desktop\\config1.json");
+    Session sess("C:\\Users\\Michael\\Desktop\\config3.json");
     sess.simulate();
     return 0;
 }

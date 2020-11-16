@@ -47,11 +47,11 @@ Tree::~Tree() {
         delete children[i];
 }
 
-int Tree::GetRoot() {
+int Tree::GetRoot() const {
     return this->node;
 }
 
-std::vector<Tree *> Tree::GetChildern() {
+const std::vector<Tree *> Tree::GetChildren() const {
     return this->children;
 }
 
@@ -69,13 +69,13 @@ void Tree::addChild(Tree *child) {
 int MaxRankTree::traceTree() {
     return traceTreeHelpForMaxTree(GetRoot(),0,0,0);
 }
-int Tree::traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMaxDepth, int currDepth)
+int Tree::traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMaxDepth, int currDepth) const
 {
-    std::vector<Tree*> children = GetChildern();
+    std::vector<Tree*> children = GetChildren();
 
     if((int)children.size() > currMaxAmount || ((int)children.size() == currMaxAmount && currMaxDepth > currDepth))
     {
-        currMaxNode = this->getNode();
+        currMaxNode = this->GetRoot();
         currMaxAmount = children.size();
         currMaxDepth = currDepth;
     }
@@ -86,20 +86,18 @@ int Tree::traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMa
     return currMaxNode;
 }
 
-int Tree::getNode() {
-    return  this->node;
-}
 /////////////////////////////////////////////
 ///////////////////////////////////////////// need to take care of t , he is not initialized
 int CycleTree::traceTree() {
     int Curr = this->getCurrCycle();
-    int NumberOfCycles = 0;
-    Tree *t;
-    while (Curr > NumberOfCycles && t ->GetChildern().size()>0) {
-      t = t->GetChildern()[0];
-        NumberOfCycles++;
-    }
-    return t->GetRoot();
+    return traceTreeHelpForCycleTree(Curr);
+}
+
+int Tree::traceTreeHelpForCycleTree(int currCycle) const {
+    if(currCycle == 0 || children.size() == 0)
+        return node;
+    return children[0]->traceTreeHelpForCycleTree(currCycle-1);
+
 }
 
 int CycleTree::getCurrCycle() {
@@ -113,8 +111,8 @@ int RootTree::traceTree() {
 RootTree::RootTree(int rootLabel) : Tree(rootLabel) {
 
 }
-void Tree::runScan(const Session& s,std::vector<int>& scanList) {
-    std::vector<int> Colors(s.getNumberOfNodes());
+void Tree::runScan(const Session& s,std::vector<int>& scanList)
+{
     Graph g = s.GetGraph();
     //0 is white, 1 is grey ,2 is black;
     scanList[node] = 1;
