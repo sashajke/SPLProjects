@@ -24,6 +24,8 @@ public:
     bool isDisconnected(int nodeInt) const;
     bool checkIfAllSickDisconnected() const;
     int GetNumbeOfVertices() const;
+    const std::vector<std::vector<int>> getGraph() const;
+    const std::vector<int> getNodesStatus() const;
 
 private:
     std::vector<std::vector<int>> edges;

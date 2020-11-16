@@ -79,6 +79,15 @@ int Graph::dequeueInfected()
     return -1;
 }
 
+const std::vector<std::vector<int>> Graph::getGraph() const {
+    return edges;
+}
+
+const std::vector<int> Graph::getNodesStatus() const {
+    return nodesStatus;
+}
+
+
 void Graph::disconnectNode(int nodeInt)
 {
     if(nodeInt < (int)edges.size())

@@ -32,7 +32,9 @@ public:
     TreeType getTreeType() const;
     const Graph& GetGraph() const;
     int getNumberOfNodes() const;
-int GetCycle() const;
+    int GetCycle() const;
+    void creatOutputJson();
+
 private:
     bool isFinished();
     int cycle;
