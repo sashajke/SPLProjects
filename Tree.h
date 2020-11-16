@@ -6,15 +6,16 @@ class Session;
 
 class Tree{
 public:
-    int traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMaxDepth, int currDepth) const;
+    int traceTreeHelpForMaxTree(int& currMaxNode, int& currMaxAmount, int& currMaxDepth, int currDepth) ;
     int traceTreeHelpForCycleTree(int currCycle) const;
     Tree(int rootLabel);
     void addChild(Tree *child);
     static Tree* createTree(const Session& session, int rootLabel);
     virtual int traceTree()=0;
-    int GetRoot() const;
+    int GetRoot();
     void SetRoot(int root);
-    void runScan(const Session& s,std::vector<int>& scanList);
+    void runScan(const Session& s,std::vector<int>& scanList,std::queue<Tree*>& queue);
+    void runScanHelp(const Session& s,std::vector<int>& scanList);
     ~Tree();
     const std::vector<Tree *> GetChildren() const;
 
