@@ -4424,11 +4424,9 @@ class json_sax_dom_parser
         ref_stack.pop_back();
         return true;
     }
-
     bool start_array(std::size_t len)
-    {
-        ref_stack.push_back(handle_value(BasicJsonType::value_t::array));
 
+        ref_stack.push_back(handle_value(BasicJsonType::value_t::array));
         if (JSON_HEDLEY_UNLIKELY(len != std::size_t(-1) and len > ref_stack.back()->max_size()))
         {
             JSON_THROW(out_of_range::create(408,
