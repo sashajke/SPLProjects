@@ -20,6 +20,7 @@ public:
 
     Session(const std::string& path);
     Session(const Session &aSession);
+    Session(const Session&& aSession);
     ~Session();
     void simulate();
     void addAgent(const Agent& agent);
@@ -27,6 +28,7 @@ public:
     void actAsVirus(int nodeint);
     void actAsContactTracer();
     Session & operator=(const Session &aSession);
+    Session & operator=(const Session&& aSession);
     void enqueueInfected(int);
     int dequeueInfected();
     TreeType getTreeType() const;
