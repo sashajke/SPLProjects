@@ -83,7 +83,6 @@ int Tree::traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMa
     return currMaxNode;
 }
 
-
 int CycleTree::traceTree() {
     int Curr = this->getCurrCycle();
     return traceTreeHelpForCycleTree(Curr);
@@ -134,10 +133,18 @@ void Tree::runScan(const Session& s,std::vector<int>& scanList)
         children[i]->runScan(s,scanList);
     }
 }
+Tree::Tree(Tree&& t){
+ this->node=t.node;
+ this->children=t.children;
+}
+
+
 void Tree::SetChildern(std::vector<Tree *> childern) {
     this->children=childern;
 }
 Tree & Tree::operator=(const Tree &t){
+    if(this==&t)
+        return *this;
     SetChildern(t.GetChildren());
     this->node=t.GetRoot();
 }
@@ -149,3 +156,4 @@ CycleTree& CycleTree::operator=(const CycleTree &Ct) {
 CycleTree::CycleTree(int rootLabel, const CycleTree &Ct) : Tree(rootLabel) {
     this->currCycle=Ct.currCycle;
 }
+
