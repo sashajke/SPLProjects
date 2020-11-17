@@ -42,6 +42,7 @@ CycleTree::CycleTree(int rootLabel, int currCycle) : Tree(rootLabel) {
 Tree::~Tree() {
     for (int i = 0; i < (int)this->children.size(); i++)
         delete children[i];
+    children.clear();
 }
 
 int Tree::GetRoot() const {
@@ -133,26 +134,41 @@ void Tree::runScan(const Session& s,std::vector<int>& scanList)
         children[i]->runScan(s,scanList);
     }
 }
+//copy consto
 Tree::Tree(Tree&& t){
- this->node=t.node;
- this->children=t.children;
+ node=t.node;
+children=std::move(children);
 }
+//rule of 5;
 
+Tree & Tree::operator=(const Tree &&t) {
+    if(this==&t)
+        return *this;
+    for(int index=0;index<t.children.size();index++)
+       delete children[index];
+    children.clear();
+    this->children=std::move(children);
+    this->node=t.node;
+    return *this;
+}
 
 void Tree::SetChildern(std::vector<Tree *> childern) {
     this->children=childern;
 }
+//=oprtaor rule of three
 Tree & Tree::operator=(const Tree &t){
     if(this==&t)
         return *this;
     SetChildern(t.GetChildren());
     this->node=t.GetRoot();
 }
+//=opratoar rule of three
 CycleTree& CycleTree::operator=(const CycleTree &Ct) {
     SetChildern(Ct.GetChildren());
     this->SetRoot(Ct.GetRoot());
     this->currCycle = Ct.currCycle;
 }
+//copt constructor
 CycleTree::CycleTree(int rootLabel, const CycleTree &Ct) : Tree(rootLabel) {
     this->currCycle=Ct.currCycle;
 }
