@@ -66,6 +66,25 @@ Session ::Session(const Session &aSession)
         addAgent(*aSession.agents[i]->clone());
     }
 }
+Session::Session(const Session &&aSession) : g(aSession.g),cycle(aSession.cycle),treeType(aSession.treeType),agents(std::move(aSession.agents)){
+
+}
+Session & Session::operator=(const Session &&aSession) {
+    if (this == &aSession)
+    {
+        return *this;
+    }
+    setGraph(aSession.g);
+    treeType = aSession.treeType;
+    for(size_t i=0;i<agents.size();i++)
+    {
+        delete agents.at(i);
+    }
+    agents.clear();
+    agents = std::move(aSession.agents);
+    return *this;
+
+}
 Session & Session::operator=(const Session &aSession)
 {
     // check for "self assignment" and do nothing in that case
@@ -118,7 +137,7 @@ void Session::creatOutputJson() {
             output["infected"][counterOfInfected++] = i;
     }
 
-    std::ofstream stream("C:\\Users\\Michael\\Desktop\\output.json");
+    std::ofstream stream("./output.json");
     stream << output;
 
 }
