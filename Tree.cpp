@@ -18,12 +18,8 @@ Tree *Tree::createTree(const Session &session, int rootLabel) {
             ToReturn = new RootTree( rootLabel);
             break;
     }
-//    Bfs *BfsScan = new Bfs(session, rootLabel);
-//    BfsScan->RunScan(*ToReturn);
-//    delete BfsScan;
     std::vector<int> scanList(session.getNumberOfNodes());
-    std::queue<Tree*> q;
-    ToReturn->runScan(session,scanList,q);
+    ToReturn->runScan(session,scanList);
     return ToReturn;
 }
 
@@ -48,7 +44,7 @@ Tree::~Tree() {
         delete children[i];
 }
 
-int Tree::GetRoot()  {
+int Tree::GetRoot() const {
     return this->node;
 }
 
@@ -68,12 +64,9 @@ void Tree::addChild(Tree *child) {
 
 
 int MaxRankTree::traceTree() {
-    int a = GetRoot();
-    int zero1=0;
-    int zero2 = 0;
-    return traceTreeHelpForMaxTree(a,zero1,zero2,0);
+    return traceTreeHelpForMaxTree(GetRoot(),0,0,0);
 }
-int Tree::traceTreeHelpForMaxTree(int& currMaxNode, int& currMaxAmount, int& currMaxDepth, int currDepth)
+int Tree::traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMaxDepth, int currDepth) const
 {
     std::vector<Tree*> children = GetChildren();
 
@@ -89,6 +82,8 @@ int Tree::traceTreeHelpForMaxTree(int& currMaxNode, int& currMaxAmount, int& cur
     }
     return currMaxNode;
 }
+
+
 int CycleTree::traceTree() {
     int Curr = this->getCurrCycle();
     return traceTreeHelpForCycleTree(Curr);
@@ -112,40 +107,45 @@ int RootTree::traceTree() {
 RootTree::RootTree(int rootLabel) : Tree(rootLabel) {
 
 }
-
-void Tree::runScan(const Session& s,std::vector<int>& scanList,queue<Tree*>& queue)
+void Tree::runScan(const Session& s,std::vector<int>& scanList)
 {
-        Graph g = s.GetGraph();
-
-        //0 is white, 1 is grey ,2 is black;
-        scanList[node] = 1;
-        for (int index = 0; index < (int)g.getRow(node).size(); index++)
-        {
-            if (g.isNeighbours(index, node) && scanList[index]==0) {
-                scanList[index] = 1;
-                switch (s.getTreeType())
-                {
-                    case MaxRank:
-                        addChild(new MaxRankTree(index));
-                        break;
-                    case Root:
-                        addChild(new RootTree(index));
-                        break;
-                    case Cycle:
-                        addChild(new CycleTree(index,s.GetCycle()));
-                        break;
-                }
+    Graph g = s.GetGraph();
+    //0 is white, 1 is grey ,2 is black;
+    scanList[node] = 1;
+    for (int index = 0; index < (int)g.getRow(node).size(); index++) {
+        if (g.isNeighbours(index, node) && scanList[index]==0) {
+            scanList[index] = 1;
+            switch (s.getTreeType())
+            {
+                case MaxRank:
+                    addChild(new MaxRankTree(index));
+                    break;
+                case Root:
+                    addChild(new RootTree(index));
+                    break;
+                case Cycle:
+                    addChild(new CycleTree(index,s.GetCycle()));
+                    break;
             }
         }
+    }
     for(size_t i=0;i<children.size();i++)
     {
-        queue.push(children[i]);
+        children[i]->runScan(s,scanList);
     }
-    while (!queue.empty())
-    {
-        Tree * tree = queue.front();
-        queue.pop();
-        tree->runScan(s,scanList,queue);
-    }
-
+}
+void Tree::SetChildern(std::vector<Tree *> childern) {
+    this->children=childern;
+}
+Tree & Tree::operator=(const Tree &t){
+    SetChildern(t.GetChildren());
+    this->node=t.GetRoot();
+}
+CycleTree& CycleTree::operator=(const CycleTree &Ct) {
+    SetChildern(Ct.GetChildren());
+    this->SetRoot(Ct.GetRoot());
+    this->currCycle = Ct.currCycle;
+}
+CycleTree::CycleTree(int rootLabel, const CycleTree &Ct) : Tree(rootLabel) {
+    this->currCycle=Ct.currCycle;
 }

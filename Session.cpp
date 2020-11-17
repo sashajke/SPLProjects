@@ -137,7 +137,9 @@ void Session::creatOutputJson() {
             output["infected"][counterOfInfected++] = i;
     }
 
+
     std::ofstream stream("./output.json");
+
     stream << output;
 
 }
