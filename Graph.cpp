@@ -108,18 +108,29 @@ void Graph::disconnectNode(int nodeInt)
 bool Graph::isDisconnected(int nodeInt) const{
     if(nodeInt<(int)edges.size())
     {
+        std::vector<int> row1 = edges[nodeInt];
+        for(size_t i=0;i<row1.size();i++)
+        {
+            if(row1[i] == 1 && nodesStatus[i] != 2)
+                return false;
+        }
         for(size_t i=0;i<edges.size();i++)
         {
-            std::vector<int> row = edges.at(i);
-            for(size_t j=0; j<row.size();j++)
-            {
-                if(i == nodeInt || j == nodeInt)
-                {
-                    if(row.at(j) == 1 && nodesStatus[j] == 0)
-                        return false;
-                }
-            }
+            if(edges[i][nodeInt] == 1 && nodesStatus[i] != 2)
+                return false;
         }
+//        for(size_t i=0;i<edges.size();i++)
+//        {
+//            std::vector<int> row = edges.at(i);
+//            for(size_t j=0; j<row.size();j++)
+//            {
+//                if(i == nodeInt || j == nodeInt)
+//                {
+//                    if(row.at(j) == 1 && nodesStatus[j] == 0)
+//                        return false;
+//                }
+//            }
+//        }
     }
     return true;
 }
