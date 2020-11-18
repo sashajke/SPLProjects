@@ -3,15 +3,15 @@
 //
 
 #include "Graph.h"
-Graph::Graph(const Graph& graph) {
-    edges = graph.edges;
-    nodesStatus = graph.nodesStatus;
+Graph::Graph():edges(),nodesStatus(),infectedQueue() {
+
+}
+Graph::Graph(const Graph& graph):edges(graph.edges),nodesStatus(graph.nodesStatus),infectedQueue() {
+
 }
 
-Graph::Graph(std::vector<std::vector<int>> matrix)
+Graph::Graph(std::vector<std::vector<int>> matrix):edges(matrix),nodesStatus(matrix.size())
 {
-    edges = matrix;
-    nodesStatus = std::vector<int>(matrix.size());
 
 }
 Graph& Graph::operator=(const Graph &graph) {
@@ -21,7 +21,9 @@ Graph& Graph::operator=(const Graph &graph) {
     return *this;
 }
 
-
+void Graph::SetGraph(std::vector<std::vector<int>> edges) {
+    this->edges=edges;
+}
 void Graph::infectNode(int nodeInd)
 {
     if(!isInfected(nodeInd))

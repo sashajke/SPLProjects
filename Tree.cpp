@@ -39,7 +39,7 @@ CycleTree::CycleTree(int rootLabel, int currCycle) : Tree(rootLabel) {
     this->currCycle = currCycle;
 }
 
-Tree::~Tree() {
+Tree:: ~Tree() {
     for (int i = 0; i < (int)this->children.size(); i++)
         delete children[i];
     children.clear();
@@ -167,6 +167,7 @@ CycleTree& CycleTree::operator=(const CycleTree &Ct) {
     SetChildern(Ct.GetChildren());
     this->SetRoot(Ct.GetRoot());
     this->currCycle = Ct.currCycle;
+    return *this;
 }
 //copt constructor
 CycleTree::CycleTree(int rootLabel, const CycleTree &Ct) : Tree(rootLabel) {

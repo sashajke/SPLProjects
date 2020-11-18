@@ -2,9 +2,10 @@
 // Created by az123 on 11/3/2020.
 //
 #include "Session.h"
-#include "Agent.h"
 #include "Tree.h"
 #include "json.hpp"
+#include "Agent.h"
+
 #include <fstream>// std::ifstream
 
 
@@ -74,7 +75,7 @@ Session & Session::operator=(const Session &&aSession) {
     {
         return *this;
     }
-    setGraph(aSession.g);
+    setGraph(aSession.g.getGraph());
     treeType = aSession.treeType;
     for(size_t i=0;i<agents.size();i++)
     {
@@ -93,7 +94,7 @@ Session & Session::operator=(const Session &aSession)
         return *this;
     }
 
-    setGraph(aSession.g);
+    setGraph(aSession.g.getGraph());
     treeType = aSession.treeType;
     for(size_t i=0;i<agents.size();i++)
     {
@@ -149,9 +150,9 @@ void Session:: addAgent(const Agent& agent)
     if(&agent != nullptr)
         agents.push_back(const_cast<Agent*>(&agent)); // cast to pointer to be able to add to agents
 }
-void Session::setGraph(const Graph& graph)
+void Session::setGraph( std::vector<std::vector<int>> Graph)
 {
-    g = graph;
+   g.SetGraph(Graph);
 }
 
 void Session::enqueueInfected(int nodeInd)
