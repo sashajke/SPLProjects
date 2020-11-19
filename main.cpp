@@ -1,26 +1,27 @@
 #include "Session.h"
 #include <csignal>
 #include <iostream>
+#include "Tester.h"
 using namespace std;
 
 //Coded By Ron Rachev
 
-
+Tester * testGenerator;
 void signalHandler(int signal){
     std::cout << "Unknown Exception! Try running generatedTest.json Manually!" << std::endl;
     exit(signal);
 }
 int main(int argc, char** argv){
 
-
-        Session sess(argv[1]);
-        sess.simulate();
-          return 0;
-
-//    Session testSession("../config1.json");
-//    testSession.simulate();
 //
-//
+//        Session sess(argv[1]);
+//        sess.simulate();
+//          return 0;
+
+    Session testSession("../config1.json");
+    testSession.simulate();
+
+
 //    signal(SIGSEGV,signalHandler);
 //    //srand(time(NULL));
 //    srand(time_t(NULL));

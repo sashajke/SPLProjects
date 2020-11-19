@@ -13,7 +13,7 @@
 using json = nlohmann::json;
 
 
-Session::Session(const std::string& path)
+Session::Session(const std::string& path):cycle(0),g(),treeType(),agents()
 {
     cycle = 0;
     std::ifstream stream(path);
@@ -28,8 +28,9 @@ Session::Session(const std::string& path)
         Agent* v;
         if(j["agents"][i][0] == "V")
         {
-            v = new Virus(j["agents"][i][1],*this);
-            g.insertVirus(j["agents"][i][1]);
+            int index = j["agents"][i][1];
+            v = new Virus(index,*this);
+            g.insertVirus(index);
         }
         else
             v = new ContactTracer(*this);
