@@ -3,7 +3,7 @@
 //
 
 #include "Graph.h"
-Graph::Graph():edges(),nodesStatus(),infectedQueue() {
+Graph::Graph():edges(),nodesStatus(1),infectedQueue() {
 
 }
 Graph::Graph(const Graph& graph):edges(graph.edges),nodesStatus(graph.nodesStatus),infectedQueue() {
@@ -23,6 +23,7 @@ Graph& Graph::operator=(const Graph &graph) {
 
 void Graph::SetGraph(std::vector<std::vector<int>> edges) {
     this->edges=edges;
+    this->nodesStatus.resize(edges.size());
 }
 void Graph::infectNode(int nodeInd)
 {
