@@ -19,7 +19,8 @@ Tree *Tree::createTree(const Session &session, int rootLabel) {
             break;
     }
     std::vector<int> scanList(session.getNumberOfNodes());
-    ToReturn->runScan(session,scanList);
+    std::queue<Tree*> q;
+    ToReturn->runScan(session,scanList,q);
     return ToReturn;
 }
 
@@ -65,9 +66,12 @@ void Tree::addChild(Tree *child) {
 
 
 int MaxRankTree::traceTree() {
-    return traceTreeHelpForMaxTree(GetRoot(),0,0,0);
+    int zero1 =0;
+    int zero2 = 0;
+    int root = GetRoot();
+    return traceTreeHelpForMaxTree(root,zero1,zero2,0);
 }
-int Tree::traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMaxDepth, int currDepth) const
+int Tree::traceTreeHelpForMaxTree(int& currMaxNode, int& currMaxAmount, int& currMaxDepth, int currDepth) const
 {
     std::vector<Tree*> children = GetChildren();
 
@@ -107,7 +111,7 @@ int RootTree::traceTree() {
 RootTree::RootTree(int rootLabel) : Tree(rootLabel) {
 
 }
-void Tree::runScan(const Session& s,std::vector<int>& scanList)
+void Tree::runScan(const Session& s,std::vector<int>& scanList,std::queue<Tree*>& queue)
 {
     Graph g = s.GetGraph();
     //0 is white, 1 is grey ,2 is black;
@@ -131,7 +135,13 @@ void Tree::runScan(const Session& s,std::vector<int>& scanList)
     }
     for(size_t i=0;i<children.size();i++)
     {
-        children[i]->runScan(s,scanList);
+        queue.push(children[i]);
+    }
+    for(size_t i=0;i<children.size();i++)
+    {
+        Tree * temp = queue.front();
+        queue.pop();
+        temp->runScan(s,scanList,queue);
     }
 }
 //copy consto
@@ -144,8 +154,8 @@ children=std::move(children);
 Tree & Tree::operator=(const Tree &&t) {
     if(this==&t)
         return *this;
-    for(int index=0;index<t.children.size();index++)
-       delete children[index];
+    for(size_t index=0;index<t.children.size();index++)
+       delete children[(int)index];
     children.clear();
     this->children=std::move(children);
     this->node=t.node;

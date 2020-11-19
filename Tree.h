@@ -9,7 +9,7 @@ public:
     Tree(Tree&& t);
     Tree & operator=(const Tree & t);
     Tree & operator=(const Tree && t);
-    int traceTreeHelpForMaxTree(int currMaxNode, int currMaxAmount, int currMaxDepth, int currDepth) const;
+    int traceTreeHelpForMaxTree(int& currMaxNode, int& currMaxAmount, int& currMaxDepth, int currDepth) const;
     int traceTreeHelpForCycleTree(int currCycle) const;
     Tree(int rootLabel);
     void addChild(Tree *child);
@@ -17,7 +17,7 @@ public:
     virtual int traceTree()=0;
     int GetRoot() const;
     void SetRoot(int root);
-    void runScan(const Session& s,std::vector<int>& scanList);
+    void runScan(const Session& s,std::vector<int>& scanList,std::queue<Tree*>& queue);
     void SetChildern(std::vector<Tree *>  childern);
     ~Tree();
     const std::vector<Tree *> GetChildren() const;
